@@ -20,7 +20,9 @@ body {
   font-size: var(--font-size-base);
   line-height: 1.6;
   color: var(--color-text);
-  background-color: var(--color-bg);
+  background-image: url(https://psv4.vkuserphoto.ru/s/v1/d2/mjUqk7qm_03gdsIpybND0MCS4xNhyzY6_kns7itXTDwVk9OB6cyMlIWqww1x0THlHTc_MGNFTSGShc1zGPhokGQUc24yus26aNtJPBPOc5PXPKRTECSDcf8V-j8BAHOH0MhYTed0-pfB/Untitled_6_1.gif?dl=1);
+   background-size: 100%
+   
   -webkit-font-smoothing: antialiased;
 }
 
