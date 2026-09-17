@@ -286,12 +286,12 @@ body {
   min-height: 160px;
   border-bottom: 1px solid var(--color-border);
 }
-.card__placeholder--a { background-size: 100%; background-image: url(https://media.istockphoto.com/id/1159783563/ru/%D0%B2%D0%B5%D0%BA%D1%82%D0%BE%D1%80%D0%BD%D0%B0%D1%8F/%D0%BC%D0%B0%D0%BA%D0%B5%D1%82-%D0%B2%D0%B5%D0%B1-%D1%81%D1%82%D1%80%D0%B0%D0%BD%D0%B8%D1%86-%D0%BE%D0%BA%D0%BD%D0%B0-%D0%B8%D0%BD%D1%82%D0%B5%D1%80%D0%BD%D0%B5%D1%82-%D0%B1%D1%80%D0%B0%D1%83%D0%B7%D0%B5%D1%80%D0%B0-%D1%81-%D0%B8%D0%BD%D1%82%D0%B5%D1%80%D1%84%D0%B5%D0%B9%D1%81%D0%BE%D0%BC-%D1%8D%D0%BB%D0%B5%D0%BC%D0%B5%D0%BD%D1%82%D0%BE%D0%B2-%D0%B2%D0%B5%D0%B1-%D1%81%D0%B0%D0%B9%D1%82%D0%B0-ui-%D1%88%D0%B0%D0%B1%D0%BB%D0%BE%D0%BD.jpg?s=612x612&w=0&k=20&c=xxK1vWcc3bdMKhuwePKvjzMfEBl_o5tlkbUWlvP7cEs=); }
-.card__placeholder--b { background-size: 100%; background-image: url(https://img.magnific.com/free-psd/flat-design-exhibition-template_23-2149725728.jpg?semt=ais_hybrid&w=740&q=80); }
-.card__placeholder--c { background-size: 100%; background-image: url(https://ir.ozone.ru/s3/multimedia-l/6851032257.jpg); }
-.card__placeholder--d { background-size: 100%; background-image: url(https://i.pinimg.com/originals/43/c3/3b/43c33b21cc3d8f3fa0855746d5194045.gif?nii=t); }
-.card__placeholder--e { background-size: 100%; background-image: url(https://static.tildacdn.com/tild6532-3066-4134-a334-666463663434/Group_506-min.jpg); }
-.card__placeholder--f { background-size: 100%; background-image: url(https://dekree.ru/wp-content/uploads/2025/11/prom-laboratoriya-02.jpg); }
+.card__placeholder--a { background-size: 100%; background-image: url(https://sun9-15.vkuserphoto.ru/s/v1/ig2/ZOBQ7z3sTbDRptTsdJUwOq0vZs7aTXsJwDdvlj47OzARtSU2Tq_FIbQ4jSuXB0KNUBqiH_mjiY-zAFztt4rTFyFB.jpg?quality=95&as=32x22,48x33,72x49,108x74,160x110,240x165,360x247,480x330,540x371,640x439,720x494,1080x742,1184x813&from=bu&u=YPmD0GW53k65CFk9DX9icW9m1AaoGyWe5cctAdqlLZo&cs=1184x0); }
+.card__placeholder--b { background-size: 100%; background-image: url(https://sun9-41.vkuserphoto.ru/s/v1/ig2/BhpxlehFLC7uxc-26hraWsNz66NTuveedBlSy2yKgtnAGkyzM6Z_JPzcPCWR29u0Cm1wXxb42V12B_xfNcYXS_OY.jpg?quality=95&as=32x45,48x67,72x101,108x152,160x225,240x337,360x506,480x674,540x758,640x899,658x924&from=bu&cs=658x0); }
+.card__placeholder--c { background-size: 100%; background-image: url(https://vk.ru/away.php?to=https%3A%2F%2Favatars.mds.yandex.net%2Fget-mpic%2F12520491%2F2a00000195db798ba21366b26db7a5495eca%2Forig&utf=1); }
+.card__placeholder--d { background-size: 100%; background-image: url(https://psv4.vkuserphoto.ru/s/v1/d2/Wl0nCYfmOLVq6onEGT7sLCRzG0IOstO3XFZtb8as0SBk9YBGUiyEgEs1diDmMNiLePdAc9nNPlpdZOz-MNq4U128CzVO3aQ8DJL2iHTFXOtMC3gE0ysPCIW8KeuLFBNQGyPkuiUwzXn5/text_4.gif?dl=1); }
+.card__placeholder--e { background-size: 100%; background-image: url(https://psv4.vkuserphoto.ru/s/v1/d2/u0AnKL_6_Jj1yHtKqECi7MQCx1-BC6GYmQwaKNsvycYYWdfRrOMto-Mmn9_iQ1RtMYdIVc5YyHonn4MaTdZmJk30BV55PoDP-kkK482NigENIHJD-D3Gdg5_DghwSstssUB7aI97OYJP/rect_4-_1.gif?dl=1); }
+.card__placeholder--f { background-size: 100%; background-image: url(https://psv4.vkuserphoto.ru/s/v1/d2/XoLqR1EKYyw74vXX8FcneAZbw_ygqtjuot40ukCqAVgkIqt_4IAMCqAKv5FV9HoqcnEF8ev4ak4J-D1BOfMy8lsp3gJy0ngRDbzgABskQnh397itiwtGhzqF2oWN7zDdyOm307IPAwh1/ellipse_2-_1.gif?dl=1); }
 
 .card__number { font-size: 2.5rem; font-weight: 700; opacity: 0.85; }
 
