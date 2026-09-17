@@ -22,6 +22,7 @@ body {
   color: var(--color-text);
   background-image: url(https://psv4.vkuserphoto.ru/s/v1/d2/XHBAzbiIVcZ8BV0yCcb2B8U6jQtERTLZ7OIEr4MJ4a1cL93n3UEYLdPO9z8GE_aJ3I4z_e591T8fZ9FXT_aluVHQCf2-B0BctVSu7oA3BOfBheRefj9O8mDdi7J4keVV_gJVojnBHsTN/Untitled_6_2.gif?dl=1);
   background-size: 100%;
+  background-repeat: repeat-x;
   -webkit-font-smoothing: antialiased;
 }
 
