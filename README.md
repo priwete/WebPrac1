@@ -12,7 +12,7 @@ HTML, CSS и JavaScript — без фреймворков, без библиот
 index.html   — разметка страницы
 style.css    — стили
 script.js    — вся клиентская логика
-README.me   — этот файл
+README.md   — этот файл
 
 
 Как устроен index.html
