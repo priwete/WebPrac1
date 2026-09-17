@@ -20,7 +20,8 @@ body {
   font-size: var(--font-size-base);
   line-height: 1.6;
   color: var(--color-text);
-  background-image: url(https://moodler2.bgpu.ru/pluginfile.php/173736/course/overviewfiles/YTUiY0dEBokN2.gif, 0.5);
+  background-image: url(https://moodler2.bgpu.ru/pluginfile.php/173736/course/overviewfiles/YTUiY0dEBokN2.gif);
+  opacity: 0.5
   background-size: 100%;
   -webkit-font-smoothing: antialiased;
 }
