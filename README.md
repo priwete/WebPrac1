@@ -9,11 +9,10 @@ HTML, CSS и JavaScript — без фреймворков, без библиот
 Что внутри
 ----------
 
-.
-├── index.html   — разметка страницы
-├── style.css    — стили
-├── script.js    — вся клиентская логика
-└── README.txt   — этот файл
+index.html   — разметка страницы
+style.css    — стили
+script.js    — вся клиентская логика
+README.me   — этот файл
 
 
 Как устроен index.html
