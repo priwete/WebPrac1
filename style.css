@@ -20,8 +20,8 @@ body {
   font-size: var(--font-size-base);
   line-height: 1.6;
   color: var(--color-text);
+  background-color: var(--color-bg);
   -webkit-font-smoothing: antialiased;
-  background-color: black;
 }
 
 img { display: block; max-width: 100%; height: auto; }
