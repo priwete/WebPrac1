@@ -20,7 +20,7 @@ body {
   font-size: var(--font-size-base);
   line-height: 1.6;
   color: var(--color-text);
-  background-color: var(--color-bg);
+  background-image: url(https://moodler2.bgpu.ru/pluginfile.php/173736/course/overviewfiles/YTUiY0dEBokN2.gif);
   -webkit-font-smoothing: antialiased;
 }
 
