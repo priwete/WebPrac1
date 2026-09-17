@@ -1,5 +1,5 @@
 /* ==========================================================================
-   1. Сброс и базовые стилиrojects
+   1. Сброс и базовые стили
    ========================================================================== */
 
 *,
@@ -20,8 +20,7 @@ body {
   font-size: var(--font-size-base);
   line-height: 1.6;
   color: var(--color-text);
-  background-image: url(https://psv4.vkuserphoto.ru/s/v1/d2/HzW-P3yBBH4_CoYYitl8j6XIM9sC-43DDis3h1DEKjXnozUwuhUcDk8jSN96kyASfYr5bbVbz8b3OIFAZBoM1-vPTYWugXyPdYhl6A_3Ra2ThbTYVo3RrEzhrxrv2OOCeW-fH4U35LjG/Untitled_6_1.gif?dl=1);
-  background-size: 100%;
+  background-color: var(--color-bg);
   -webkit-font-smoothing: antialiased;
 }
 
@@ -279,21 +278,29 @@ body {
 }
 .card:hover { border-color: var(--color-accent); }
 
+/* Плейсхолдер теперь кнопка — сбрасываем кнопочные стили */
 .card__placeholder {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  min-height: 160px;
+  display: block;
+  width: 100%;
+  min-height: 200px;
+  padding: 0;
+  border: none;
   border-bottom: 1px solid var(--color-border);
+  background-color: var(--color-surface-2);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  cursor: zoom-in;
+  transition: transform 0.3s ease, filter 0.3s ease;
 }
-.card__placeholder--a { background-size: 100%; background-image: url(https://sun9-15.vkuserphoto.ru/s/v1/ig2/ZOBQ7z3sTbDRptTsdJUwOq0vZs7aTXsJwDdvlj47OzARtSU2Tq_FIbQ4jSuXB0KNUBqiH_mjiY-zAFztt4rTFyFB.jpg?quality=95&as=32x22,48x33,72x49,108x74,160x110,240x165,360x247,480x330,540x371,640x439,720x494,1080x742,1184x813&from=bu&u=YPmD0GW53k65CFk9DX9icW9m1AaoGyWe5cctAdqlLZo&cs=1184x0); }
-.card__placeholder--b { background-size: 100%; background-image: url(https://sun9-87.vkuserphoto.ru/s/v1/ig2/VLzuzh8QuXIhWiT4Hpt9V5sp2y9SpMSKv-fNmmMdsxTSFgonTKjM__ROM4y64xL09nzKGWFcX9G1sAY25i27fnWv.jpg?quality=95&as=32x23,48x34,72x51,108x76,160x113,240x170,360x255,480x340,540x382,640x453,720x510,1080x765,1193x845&from=bu&u=rQjehztM-3z34A29wsZb7lWlIFNlZTffXrXPdMhrDDE&cs=1193x0); }
-.card__placeholder--c { background-size: 100%; background-image: url(https://sun9-31.vkuserphoto.ru/s/v1/ig2/JklIM9RDuLdQu7aiTJyYC6Hyld1D9pX0ruf5LtSu63dvSAqW_bLPHDX7j9jWnvaVAR1uqk-5Q0y7bxRj7UIUyRZc.jpg?quality=95&as=32x48,48x71,72x107,108x160,160x238,240x357,360x535,391x581&from=bu&u=83JWInNMVfAYLhGuT_EQTKjrSpRtQTtNW7w4PGlMXGQ&cs=391x0); }
-.card__placeholder--d { background-size: 100%; background-image: url(https://psv4.vkuserphoto.ru/s/v1/d2/Wl0nCYfmOLVq6onEGT7sLCRzG0IOstO3XFZtb8as0SBk9YBGUiyEgEs1diDmMNiLePdAc9nNPlpdZOz-MNq4U128CzVO3aQ8DJL2iHTFXOtMC3gE0ysPCIW8KeuLFBNQGyPkuiUwzXn5/text_4.gif?dl=1); }
-.card__placeholder--e { background-size: 100%; background-image: url(https://psv4.vkuserphoto.ru/s/v1/d2/u0AnKL_6_Jj1yHtKqECi7MQCx1-BC6GYmQwaKNsvycYYWdfRrOMto-Mmn9_iQ1RtMYdIVc5YyHonn4MaTdZmJk30BV55PoDP-kkK482NigENIHJD-D3Gdg5_DghwSstssUB7aI97OYJP/rect_4-_1.gif?dl=1); }
-.card__placeholder--f { background-size: 100%; background-image: url(https://psv4.vkuserphoto.ru/s/v1/d2/XoLqR1EKYyw74vXX8FcneAZbw_ygqtjuot40ukCqAVgkIqt_4IAMCqAKv5FV9HoqcnEF8ev4ak4J-D1BOfMy8lsp3gJy0ngRDbzgABskQnh397itiwtGhzqF2oWN7zDdyOm307IPAwh1/ellipse_2-_1.gif?dl=1); }
+.card__placeholder:hover { transform: scale(1.02); filter: brightness(1.1); }
 
-.card__number { font-size: 2.5rem; font-weight: 700; opacity: 0.85; }
+.card__placeholder--a { background-image: url(https://sun9-15.vkuserphoto.ru/s/v1/ig2/ZOBQ7z3sTbDRptTsdJUwOq0vZs7aTXsJwDdvlj47OzARtSU2Tq_FIbQ4jSuXB0KNUBqiH_mjiY-zAFztt4rTFyFB.jpg?quality=95&as=32x22,48x33,72x49,108x74,160x110,240x165,360x247,480x330,540x371,640x439,720x494,1080x742,1184x813&from=bu&u=YPmD0GW53k65CFk9DX9icW9m1AaoGyWe5cctAdqlLZo&cs=1184x0); }
+.card__placeholder--b { background-image: url(https://sun9-87.vkuserphoto.ru/s/v1/ig2/VLzuzh8QuXIhWiT4Hpt9V5sp2y9SpMSKv-fNmmMdsxTSFgonTKjM__ROM4y64xL09nzKGWFcX9G1sAY25i27fnWv.jpg?quality=95&as=32x23,48x34,72x51,108x76,160x113,240x170,360x255,480x340,540x382,640x453,720x510,1080x765,1193x845&from=bu&u=rQjehztM-3z34A29wsZb7lWlIFNlZTffXrXPdMhrDDE&cs=1193x0); }
+.card__placeholder--c { background-image: url(https://sun9-31.vkuserphoto.ru/s/v1/ig2/JklIM9RDuLdQu7aiTJyYC6Hyld1D9pX0ruf5LtSu63dvSAqW_bLPHDX7j9jWnvaVAR1uqk-5Q0y7bxRj7UIUyRZc.jpg?quality=95&as=32x48,48x71,72x107,108x160,160x238,240x357,360x535,391x581&from=bu&u=83JWInNMVfAYLhGuT_EQTKjrSpRtQTtNW7w4PGlMXGQ&cs=391x0); }
+.card__placeholder--d { background-image: url(https://psv4.vkuserphoto.ru/s/v1/d2/Wl0nCYfmOLVq6onEGT7sLCRzG0IOstO3XFZtb8as0SBk9YBGUiyEgEs1diDmMNiLePdAc9nNPlpdZOz-MNq4U128CzVO3aQ8DJL2iHTFXOtMC3gE0ysPCIW8KeuLFBNQGyPkuiUwzXn5/text_4.gif?dl=1); }
+.card__placeholder--e { background-image: url(https://psv4.vkuserphoto.ru/s/v1/d2/u0AnKL_6_Jj1yHtKqECi7MQCx1-BC6GYmQwaKNsvycYYWdfRrOMto-Mmn9_iQ1RtMYdIVc5YyHonn4MaTdZmJk30BV55PoDP-kkK482NigENIHJD-D3Gdg5_DghwSstssUB7aI97OYJP/rect_4-_1.gif?dl=1); }
+.card__placeholder--f { background-image: url(https://psv4.vkuserphoto.ru/s/v1/d2/XoLqR1EKYyw74vXX8FcneAZbw_ygqtjuot40ukCqAVgkIqt_4IAMCqAKv5FV9HoqcnEF8ev4ak4J-D1BOfMy8lsp3gJy0ngRDbzgABskQnh397itiwtGhzqF2oWN7zDdyOm307IPAwh1/ellipse_2-_1.gif?dl=1); }
 
 .card__body { display: flex; flex-direction: column; gap: var(--space-sm); padding: var(--space-lg); }
 .card__title { font-size: var(--font-size-lg); }
@@ -450,7 +457,127 @@ body {
 .reveal.is-visible { opacity: 1; transform: translateY(0); }
 
 /* ==========================================================================
-   18. Медиазапросы
+   18. Лайтбокс
+   ========================================================================== */
+
+.lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-md);
+}
+.lightbox[hidden] { display: none; }
+
+.lightbox__backdrop {
+  position: absolute;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.85);
+  cursor: zoom-out;
+}
+
+.lightbox__dialog {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  max-width: 900px;
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  animation: lightbox-in 0.25s ease;
+}
+
+@keyframes lightbox-in {
+  from { opacity: 0; transform: scale(0.96); }
+  to   { opacity: 1; transform: scale(1); }
+}
+
+.lightbox__figure {
+  flex: 1 1 auto;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+}
+
+.lightbox__image {
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  background-color: var(--color-surface);
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+}
+
+.lightbox__caption {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: var(--space-sm);
+  padding: var(--space-sm) var(--space-md);
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+}
+
+.lightbox__title { font-weight: 600; }
+.lightbox__counter { font-size: var(--font-size-sm); color: var(--color-text-muted); }
+
+.lightbox__close {
+  position: absolute;
+  top: -3rem;
+  right: 0;
+  width: 40px;
+  height: 40px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  line-height: 1;
+  color: var(--color-text);
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: 50%;
+  cursor: pointer;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+.lightbox__close:hover { background-color: var(--color-accent); color: #0f0f10; }
+
+.lightbox__nav {
+  flex: 0 0 auto;
+  width: 44px;
+  height: 44px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.75rem;
+  line-height: 1;
+  color: var(--color-text);
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: 50%;
+  cursor: pointer;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+.lightbox__nav:hover { background-color: var(--color-accent); color: #0f0f10; }
+
+/* На мобильных стрелки уезжают вниз под изображение */
+@media (max-width: 560px) {
+  .lightbox__dialog { flex-direction: column; }
+  .lightbox__nav { width: 100%; border-radius: var(--radius-sm); }
+  .lightbox__nav--prev { order: 2; }
+  .lightbox__figure { order: 1; }
+  .lightbox__nav--next { order: 3; }
+  .lightbox__close { top: -2.5rem; }
+}
+
+/* ==========================================================================
+   19. Медиазапросы
    ========================================================================== */
 
 /* Планшет: от 768px */
@@ -500,4 +627,5 @@ body {
     animation-duration: 0.01ms !important;
   }
   .reveal { opacity: 1; transform: none; }
+  .lightbox__dialog { animation: none; }
 }
