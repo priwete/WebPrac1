@@ -10,8 +10,11 @@ HTML, CSS и JavaScript — без фреймворков, без библиот
 ----------
 
 index.html   — разметка страницы
+
 style.css    — стили
+
 script.js    — вся клиентская логика
+
 README.md   — этот файл
 
 
