@@ -2,7 +2,7 @@
    Портфолио-резюме — интерактивные сценарии
    1. Валидация формы обратной связи
    2. Плавная прокрутка по якорям + активный пункт меню
-   3. Анимация появления секций (IntersectionObserver)
+   3. Анимация появления секций и элементов (IntersectionObserver)
    4. Кнопка «Наверх»
    5. Динамический год в копирайте
    6. Лайтбокс со слайдером для проектов
@@ -149,27 +149,116 @@
   }
 
   /* ========================================================================
-     3. Анимация появления секций (IntersectionObserver)
+     3. Анимация появления секций и элементов
+     ----------------------------------------------------------------------
+     - Секции (.reveal) — плавно вылетают снизу.
+     - Карточки проектов (.card) — поочерёдно: слева, снизу, справа.
+     - Теги (.tag) — лесенкой снизу с задержкой по индексу.
+     - Строки контактов (.contacts__item) — слева.
+     Все анимации — через добавление класса .is-visible.
      ======================================================================== */
 
-  const revealEls = Array.from(document.querySelectorAll('.reveal'));
+  const prefersReducedMotion =
+    window.matchMedia &&
+    window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-  if (revealEls.length && 'IntersectionObserver' in window) {
-    const revealObserver = new IntersectionObserver(
-      (entries, observer) => {
+  /**
+   * Универсальный помощник: наблюдает за элементами и добавляет
+   * класс .is-visible, когда элемент попадает в зону видимости.
+   */
+  function observeReveal(elements, options) {
+    if (!elements.length) return;
+
+    // Если пользователь просит меньше движения — показываем сразу
+    if (prefersReducedMotion || !('IntersectionObserver' in window)) {
+      elements.forEach((el) => el.classList.add('is-visible'));
+      return;
+    }
+
+    const observer = new IntersectionObserver(
+      (entries, obs) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
             entry.target.classList.add('is-visible');
-            observer.unobserve(entry.target);
+            obs.unobserve(entry.target); // анимируем один раз
           }
         });
       },
-      { threshold: 0.15 }
+      Object.assign(
+        { threshold: 0.15, rootMargin: '0px 0px -60px 0px' },
+        options || {}
+      )
     );
 
-    revealEls.forEach((el) => revealObserver.observe(el));
-  } else {
-    revealEls.forEach((el) => el.classList.add('is-visible'));
+    elements.forEach((el) => observer.observe(el));
+  }
+
+  /* --- 3.1. Секции: снизу вверх -------------------------------------- */
+
+  observeReveal(Array.from(document.querySelectorAll('.reveal')));
+
+  /* --- 3.2. Карточки проектов: слева, снизу, справа по кругу -------- */
+
+  const cards = Array.from(document.querySelectorAll('.projects .card'));
+  const cardDirections = ['from-left', 'from-bottom', 'from-right'];
+
+  cards.forEach((card, index) => {
+    card.classList.add('anim');
+    card.classList.add(cardDirections[index % cardDirections.length]);
+
+    // Небольшая задержка по индексу — карточки вылетают лесенкой
+    const delay = (index % 3) * 0.12;
+    card.style.transitionDelay = delay + 's';
+  });
+
+  observeReveal(cards, { threshold: 0.2 });
+
+  /* --- 3.3. Теги: лесенкой снизу ------------------------------------ */
+
+  const tagGroups = Array.from(document.querySelectorAll('.tag-list'));
+
+  tagGroups.forEach((group) => {
+    const tags = Array.from(group.querySelectorAll('.tag'));
+    tags.forEach((tag, index) => {
+      tag.classList.add('anim', 'from-bottom');
+      // Ограничиваем задержку, чтобы длинный список не тянулся вечно
+      const delay = Math.min(index, 10) * 0.06;
+      tag.style.transitionDelay = delay + 's';
+    });
+
+    observeReveal(tags, { threshold: 0.05 });
+  });
+
+  /* --- 3.4. Карточки навыков, образования, опыта ------------------- */
+
+  const sideBlocks = Array.from(
+    document.querySelectorAll(
+      '.skills__card, .education, .experience'
+    )
+  );
+
+  sideBlocks.forEach((block, index) => {
+    block.classList.add('anim');
+    block.classList.add(index % 2 === 0 ? 'from-left' : 'from-right');
+  });
+
+  observeReveal(sideBlocks, { threshold: 0.2 });
+
+  /* --- 3.5. Строки контактов и поля формы -------------------------- */
+
+  const contactItems = Array.from(
+    document.querySelectorAll('.contacts__item')
+  );
+  contactItems.forEach((item, index) => {
+    item.classList.add('anim', 'from-left');
+    item.style.transitionDelay = Math.min(index, 6) * 0.08 + 's';
+  });
+  observeReveal(contactItems, { threshold: 0.1 });
+
+  const formEl = document.querySelector('.form');
+  if (formEl) {
+    formEl.classList.add('anim', 'from-right');
+    observeReveal([formEl], { threshold: 0.15 });
   }
 
   /* ========================================================================
@@ -219,18 +308,11 @@
     let currentIndex = 0;
     let lastFocused = null;
 
-    /**
-     * Достать URL фоновой картинки у кнопки-плейсхолдера.
-     * Возвращает строку url(...) или пустую строку.
-     */
     function getBackgroundImage(el) {
       const style = window.getComputedStyle(el);
       return style.backgroundImage || '';
     }
 
-    /**
-     * Отрисовать текущий слайд.
-     */
     function renderSlide() {
       const trigger = triggers[currentIndex];
       if (!trigger) return;
@@ -239,17 +321,12 @@
       imageEl.style.backgroundImage = bg;
       titleEl.textContent = trigger.dataset.title || '';
       counterEl.textContent = (currentIndex + 1) + ' / ' + triggers.length;
-
-      // Обновляем alt через aria-label у контейнера
       imageEl.setAttribute(
         'aria-label',
         trigger.dataset.title || 'Изображение проекта'
       );
     }
 
-    /**
-     * Открыть лайтбокс на конкретном индексе.
-     */
     function openLightbox(index) {
       currentIndex = index;
       lastFocused = document.activeElement;
@@ -259,14 +336,10 @@
 
       renderSlide();
 
-      // Фокус на кнопку закрытия — так удобнее для клавиатуры
       const closeBtn = lightbox.querySelector('.lightbox__close');
       if (closeBtn) closeBtn.focus();
     }
 
-    /**
-     * Закрыть лайтбокс.
-     */
     function closeLightbox() {
       lightbox.hidden = true;
       document.body.style.overflow = '';
@@ -277,9 +350,6 @@
       }
     }
 
-    /**
-     * Перейти к следующему/предыдущему слайду с зацикливанием.
-     */
     function showNext() {
       currentIndex = (currentIndex + 1) % triggers.length;
       renderSlide();
@@ -289,21 +359,17 @@
       renderSlide();
     }
 
-    // Клики по плейсхолдерам
     triggers.forEach((trigger, index) => {
       trigger.addEventListener('click', () => openLightbox(index));
     });
 
-    // Кнопки управления
     if (nextBtn) nextBtn.addEventListener('click', showNext);
     if (prevBtn) prevBtn.addEventListener('click', showPrev);
 
-    // Закрытие: крестик и клик по фону
     closeBtns.forEach((btn) => {
       btn.addEventListener('click', closeLightbox);
     });
 
-    // Клавиатура
     document.addEventListener('keydown', (event) => {
       if (lightbox.hidden) return;
 
