@@ -447,15 +447,49 @@ body {
 .to-top.is-visible { opacity: 1; visibility: visible; transform: translateY(0); }
 
 /* ==========================================================================
-   17. Анимация появления секций
+   17. Анимация появления секций и элементов
    ========================================================================== */
 
+/* Базовое состояние для всех анимируемых элементов */
+.anim {
+  opacity: 0;
+  transition:
+    opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+  will-change: opacity, transform;
+}
+
+/* .reveal — секции, вылетают снизу */
 .reveal {
   opacity: 0;
-  transform: translateY(24px);
-  transition: opacity 0.6s ease, transform 0.6s ease;
+  transform: translateY(28px);
+  transition:
+    opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+  will-change: opacity, transform;
 }
-.reveal.is-visible { opacity: 1; transform: translateY(0); }
+
+/* Направления вылета */
+.from-left   { transform: translateX(-40px); }
+.from-right  { transform: translateX(40px); }
+.from-bottom { transform: translateY(28px); }
+
+/* Состояние после появления — общее для всех */
+.reveal.is-visible,
+.anim.is-visible {
+  opacity: 1;
+  transform: translate(0, 0);
+}
+
+/* Уважение к настройкам пользователя */
+@media (prefers-reduced-motion: reduce) {
+  .anim,
+  .reveal {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+}
 
 /* ==========================================================================
    18. Лайтбокс
